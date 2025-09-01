@@ -3,7 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD1sN-OXxJTV4z972LYiPWtS7K3E8gumCg",
+  apiKey: "xxxxxxxxxxxxxxxx",
   authDomain: "note-pad-77486.firebaseapp.com",
   projectId: "note-pad-77486",
   storageBucket: "note-pad-77486.firebasestorage.app",
