@@ -1,0 +1,167 @@
+.heart-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.heart-shape {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.heart-left,
+.heart-right {
+  position: absolute;
+  width: 19px;
+  height: 29px;
+  background: var(--heart-color, #ff6b9d);
+  border-radius: 19px 19px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.heart-right {
+  left: 15px;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+/* Size variants */
+.heart-logo--small {
+  width: 16px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.heart-logo--small .heart-left,
+.heart-logo--small .heart-right {
+  width: 10px;
+  height: 16px;
+  border-radius: 10px 10px 0 0;
+}
+
+.heart-logo--small .heart-right {
+  left: 8px;
+}
+
+.heart-logo--medium {
+  width: 24px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.heart-logo--large {
+  width: 48px;
+  height: 43px;
+}
+
+.heart-logo--large .heart-left,
+.heart-logo--large .heart-right {
+  width: 39px;
+  height: 60px;
+  border-radius: 39px 39px 0 0;
+}
+
+.heart-logo--large .heart-right {
+  left: 33px;
+}
+
+/* Color variants */
+.heart-logo--primary {
+  --heart-color: var(--love-primary, #ff6b9d);
+}
+
+.heart-logo--secondary {
+  --heart-color: var(--love-secondary, #ff8fab);
+}
+
+.heart-logo--accent {
+  --heart-color: var(--love-accent, #ffc1cc);
+}
+
+.heart-logo--gradient {
+  --heart-color: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 50%, #ffc1cc 100%);
+}
+
+/* Animation */
+.heart-logo--animated {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.1);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+.heart-logo:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* Pulse animation variant */
+.heart-logo--pulse {
+  animation: heartPulse 2s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+/* E
+nsure proper spacing and prevent overlapping */
+.heart-logo--small {
+  margin: 0;
+  padding: 0;
+}
+
+.heart-logo--medium {
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix positioning for better alignment */
+.heart-shape {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: -1px; /* Slight adjustment to center better */
+}
+
+/* Prevent overflow issues */
+.heart-logo {
+  overflow: visible;
+}
+
+/* Better heart shape for small size */
+.heart-logo--small .heart-left,
+.heart-logo--small .heart-right {
+  width: 8px;
+  height: 12px;
+  border-radius: 8px 8px 0 0;
+}
+
+.heart-logo--small .heart-right {
+  left: 6px;
+}

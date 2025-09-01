@@ -1,0 +1,111 @@
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--hover-bg);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.theme-toggle:hover::before {
+  opacity: 1;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.toggle-track {
+  width: 54px;
+  height: 28px;
+  background: var(--toggle-track-bg);
+  border-radius: 14px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid var(--toggle-border);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-thumb {
+  width: 22px;
+  height: 22px;
+  background: var(--toggle-thumb-bg);
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--toggle-icon-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.toggle-thumb.light {
+  left: 1px;
+  transform: translateX(0) scale(1);
+  background: linear-gradient(135deg, #ffd54f, #ffb300);
+}
+
+.toggle-thumb.dark {
+  left: 1px;
+  transform: translateX(24px) scale(1);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.toggle-thumb:hover {
+  transform: translateX(0) scale(1.1);
+}
+
+.toggle-thumb.dark:hover {
+  transform: translateX(24px) scale(1.1);
+}
+
+/* Enhanced animations */
+.theme-toggle:active .toggle-thumb {
+  transform: scale(0.95);
+}
+
+.theme-toggle:active .toggle-thumb.dark {
+  transform: translateX(24px) scale(0.95);
+}
+
+/* Theme variables - Updated to work with love themes */
+.theme-toggle {
+  --toggle-track-bg: var(--bg-secondary);
+  --toggle-border: var(--border-color);
+  --toggle-thumb-bg: var(--primary-color);
+  --toggle-icon-color: white;
+}
+
+/* Light mode styles */
+:root:not(.dark) .theme-toggle {
+  --toggle-track-bg: var(--bg-secondary);
+  --toggle-border: var(--border-color);
+  --toggle-thumb-bg: var(--primary-color);
+  --toggle-icon-color: white;
+}
+
+/* Dark mode styles */
+:root.dark .theme-toggle {
+  --toggle-track-bg: var(--bg-tertiary);
+  --toggle-border: var(--border-color);
+  --toggle-thumb-bg: var(--secondary-color);
+  --toggle-icon-color: var(--text-primary);
+}

@@ -1,0 +1,344 @@
+/* Voice Note Creator Styles */
+.voice-note-creator-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.voice-note-creator {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px var(--shadow-heavy);
+  animation: slideUp 0.3s ease-out;
+}
+
+.voice-note-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.voice-note-header h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: var(--hover-bg);
+  color: var(--text-primary);
+}
+
+.voice-note-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.voice-controls-main {
+  display: flex;
+  justify-content: center;
+}
+
+.voice-record-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+  border: 3px solid var(--border-color);
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 120px;
+  min-height: 120px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+.voice-record-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.voice-record-btn:hover::before {
+  opacity: 1;
+}
+
+.voice-record-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 40px var(--shadow-color);
+}
+
+.voice-record-btn.recording {
+  background: linear-gradient(135deg, #ff4757, #ff3742);
+  border-color: #ff4757;
+  animation: pulse 2s infinite;
+  box-shadow: 0 8px 30px rgba(255, 71, 87, 0.4);
+}
+
+.voice-record-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.recording-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  position: relative;
+}
+
+.pulse-ring {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #e53e3e;
+  border-radius: 50%;
+  animation: pulsering 2s infinite;
+}
+
+.pulse-ring.delay-1 {
+  animation-delay: 0.5s;
+}
+
+.pulse-ring.delay-2 {
+  animation-delay: 1s;
+}
+
+.transcript-display {
+  min-height: 150px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.transcript-final {
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.transcript-interim {
+  color: var(--text-secondary);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.transcript-placeholder {
+  color: var(--text-secondary);
+  font-style: italic;
+  opacity: 0.5;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.voice-note-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 14px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  min-height: 44px;
+}
+
+.action-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.action-btn:hover::before {
+  left: 100%;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.save-btn {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.save-btn:hover {
+  box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+.enhance-btn {
+  background: linear-gradient(135deg, #2ed573, #1dd1a1);
+  color: white;
+  box-shadow: 0 4px 20px rgba(46, 213, 115, 0.3);
+}
+
+.enhance-btn:hover {
+  box-shadow: 0 8px 30px rgba(46, 213, 115, 0.4);
+}
+
+.cancel-btn {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+}
+
+.cancel-btn::before {
+  background: linear-gradient(90deg, transparent, var(--hover-bg), transparent);
+}
+
+.cancel-btn:hover {
+  background: var(--hover-bg);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulsering {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .voice-note-creator {
+    padding: 20px;
+    width: 95%;
+  }
+  
+  .voice-record-btn {
+    min-width: 100px;
+    min-height: 100px;
+    padding: 20px;
+  }
+  
+  .voice-note-actions {
+    flex-direction: column;
+  }
+  
+  .action-btn {
+    justify-content: center;
+  }
+}

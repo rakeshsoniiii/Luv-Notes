@@ -1,0 +1,75 @@
+@import './styles/love-themes.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  min-height: 100vh;
+  background: var(--gradient-bg, var(--bg-primary));
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+/* Apply love theme background */
+.App.love-gradient-bg {
+  background: var(--gradient-bg);
+}
+
+/* Global button styles */
+button {
+  font-family: inherit;
+}
+
+/* Love theme enhancements */
+.love-theme-transition * {
+  transition: all 0.3s ease;
+}/* Mo
+bile responsiveness improvements */
+@media (max-width: 768px) {
+  .App {
+    font-size: 14px;
+  }
+  
+  /* Improve touch targets */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better text readability on mobile */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    font-size: 13px;
+  }
+  
+  /* Ensure proper viewport handling */
+  html {
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+  }
+}
+
+/* Improve scrolling on mobile */
+.App {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+}
+
+/* Better focus states for mobile */
+@media (max-width: 768px) {
+  button:focus,
+  input:focus,
+  textarea:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+}

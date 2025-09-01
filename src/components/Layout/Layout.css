@@ -1,0 +1,257 @@
+/* Header and Navbar Styles */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--card-bg, rgba(255, 255, 255, 0.95));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color, rgba(255, 107, 157, 0.2));
+  box-shadow: 0 2px 20px var(--shadow-light, rgba(255, 107, 157, 0.1));
+  transition: all 0.3s ease;
+}
+
+.header.dark {
+  background: var(--card-bg, rgba(22, 33, 62, 0.95));
+  border-bottom-color: var(--border-color, rgba(255, 107, 157, 0.3));
+}
+
+/* Navbar Container */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+/* Brand Section */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color, #ff6b9d);
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Main Navigation - Hidden since buttons were non-functional */
+.navbar-nav {
+  display: none;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: var(--text-secondary, #4a5568);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  background: var(--hover-bg, rgba(255, 107, 157, 0.05));
+  color: var(--text-primary, #2d3748);
+  border-color: var(--border-color, rgba(255, 107, 157, 0.2));
+}
+
+.nav-btn.active {
+  background: var(--primary-color, #ff6b9d);
+  color: white;
+  border-color: var(--primary-color, #ff6b9d);
+  box-shadow: 0 2px 8px var(--shadow-color, rgba(255, 107, 157, 0.2));
+}
+
+.nav-btn.active:hover {
+  background: var(--accent-hover, #d63384);
+  border-color: var(--accent-hover, #d63384);
+}
+
+.nav-text {
+  display: inline;
+}
+
+/* User Section */
+.navbar-user {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-secondary, rgba(255, 224, 230, 0.5));
+  border-radius: 20px;
+  color: var(--text-secondary, #4a5568);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.user-name {
+  white-space: nowrap;
+}
+
+/* Tools Section */
+.navbar-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.tool-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: 1px solid var(--border-color, rgba(255, 107, 157, 0.2));
+  border-radius: 10px;
+  color: var(--text-secondary, #4a5568);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tool-btn:hover {
+  background: var(--hover-bg, rgba(255, 107, 157, 0.05));
+  color: var(--text-primary, #2d3748);
+  border-color: var(--border-hover, #ff6b9d);
+  transform: translateY(-1px);
+}
+
+.tool-btn:active {
+  transform: translateY(0);
+}
+
+.tool-text {
+  display: inline;
+}
+
+/* Specific tool button styles */
+.theme-btn:hover {
+  background: var(--accent-color, rgba(255, 193, 204, 0.1));
+  border-color: var(--accent-color, #ffc1cc);
+}
+
+.backup-btn:hover {
+  background: var(--accent-color, rgba(255, 193, 204, 0.1));
+  border-color: var(--accent-color, #ffc1cc);
+}
+
+.hidden-notes-btn:hover {
+  background: var(--accent-color, rgba(255, 193, 204, 0.1));
+  border-color: var(--accent-color, #ffc1cc);
+}
+
+.settings-btn:hover {
+  background: var(--accent-color, rgba(255, 193, 204, 0.1));
+  border-color: var(--accent-color, #ffc1cc);
+}
+
+.logout-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* Mobile Menu Toggle - Removed since mobile navigation was removed */
+
+/* Mobile Navigation - Removed since mobile navigation was removed */
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+  
+  .tool-text {
+    display: none;
+  }
+  
+  .tool-btn {
+    padding: 0.5rem;
+    min-width: 40px;
+    justify-content: center;
+  }
+  
+  .navbar-tools {
+    gap: 0.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+  
+  .app-title {
+    font-size: 1.25rem;
+  }
+  
+  .navbar-user {
+    display: none;
+  }
+  
+  .navbar-tools {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .app-title {
+    font-size: 1.125rem;
+  }
+  
+  .navbar-brand {
+    gap: 0.5rem;
+  }
+}
+
+/* Dark theme adjustments - Mobile nav styles removed */
+
+/* Focus states for accessibility */
+.nav-btn:focus,
+.tool-btn:focus {
+  outline: 2px solid var(--primary-color, #ff6b9d);
+  outline-offset: 2px;
+}
+
+/* Hover effects for touch devices */
+@media (hover: none) {
+  .nav-btn:hover,
+  .tool-btn:hover {
+    background: transparent;
+    border-color: var(--border-color, rgba(255, 107, 157, 0.2));
+    transform: none;
+  }
+  
+  .nav-btn:active,
+  .tool-btn:active {
+    background: var(--hover-bg, rgba(255, 107, 157, 0.05));
+    border-color: var(--border-hover, #ff6b9d);
+  }
+}
