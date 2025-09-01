@@ -2,7 +2,8 @@
 
 A modern, feature-rich note-taking web application built with React and Firebase, featuring beautiful themes, AI-powered tools, and comprehensive note management capabilities.
 
-**[Live Demo](https://your-demo-link.com)**
+**[Live Demo](https://notes-lovat-nu.vercel.app/)**
+
 
 \<br/\>
 
@@ -442,5 +443,6 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 \<p align="center"\>
 Made with ❤️ for note-taking enthusiasts everywhere\!
 \</p\>
+
 
 
